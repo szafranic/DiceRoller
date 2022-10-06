@@ -49,7 +49,7 @@ namespace DiceRoller
 		public static int GenerateNumber(int length)
 		{
 			Random r = new Random();
-			return r.Next(1, length);
+			return r.Next(1, length+1);
 		}
 		public static string GiveMessage(int length, int total, int die1, int die2)
 		{
@@ -64,7 +64,7 @@ namespace DiceRoller
 				{
 					together.Append("ace duece \n");
 				}
-				if ((die1 == 7 && die2 == 11) || (die1 == 11 && die2 == 7))
+				if (total == 7 || total == 11)
 				{
 					together.Append("win \n");
 				}
@@ -82,6 +82,18 @@ namespace DiceRoller
 				if ((die1 == 12 && die2 == 13)||(die1 == 13 && die2 == 12))
 				{
 					together.Append("split! \n");
+				}
+				if (total == 49)
+				{
+					together.Append("rough day \n");
+				}
+				if (die1 == 17 && die2 == 17)
+				{
+					together.Append("moth! \n");
+				}
+				if (total == 30)
+				{
+					together.Append("catalogue \n");
 				}
 			}
 			return together.ToString();
